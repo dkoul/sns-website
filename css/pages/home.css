@@ -1,0 +1,213 @@
+/* ==========================================================================
+   Home Page Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero__background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero__background img,
+.hero__background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.2) 0%,
+    rgba(10, 10, 10, 0.6) 100%
+  );
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: var(--container-padding);
+}
+
+.hero__label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-sm);
+}
+
+.hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 8vw, 5rem);
+  font-weight: var(--font-weight-light);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-primary);
+}
+
+.hero__subtitle {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-lg);
+  max-width: 60ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   Featured Collection Section
+   ========================================================================== */
+
+.featured-collection {
+  padding: var(--section-padding-y) 0;
+}
+
+.featured-collection__header {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+}
+
+.featured-collection__title {
+  font-size: var(--font-size-3xl);
+  margin-bottom: var(--space-sm);
+}
+
+.featured-collection__description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 60ch;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Craft Highlight Section (Split Layout)
+   ========================================================================== */
+
+.craft-highlight {
+  padding: var(--section-padding-y) 0;
+  background: var(--color-bg-secondary);
+}
+
+.craft-highlight__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+}
+
+.craft-highlight__text {
+  padding: var(--space-lg);
+}
+
+.craft-highlight__label {
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--color-accent-gold);
+  margin-bottom: var(--space-sm);
+}
+
+.craft-highlight__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.craft-highlight__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-md);
+}
+
+.craft-highlight__video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-bg-tertiary);
+}
+
+.craft-highlight__video video,
+.craft-highlight__video img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 768px) {
+  .craft-highlight__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+}
+
+/* ==========================================================================
+   Brand Promise / Values Section
+   ========================================================================== */
+
+.brand-promise {
+  padding: var(--section-padding-y) 0;
+}
+
+.brand-promise__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+
+/* ==========================================================================
+   CTA Section
+   ========================================================================== */
+
+.cta-section {
+  padding: var(--section-padding-y) 0;
+  text-align: center;
+}
+
+.cta-section__content {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-lg);
+  background: var(--glass-bg-medium);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-xl);
+}
+
+.cta-section__title {
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-md);
+}
+
+.cta-section__description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-lg);
+}

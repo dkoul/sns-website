@@ -1,0 +1,69 @@
+/* ==========================================================================
+   Horizontal Scroll Gallery
+   ========================================================================== */
+
+.horizontal-gallery {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: var(--space-lg) 0;
+}
+
+.horizontal-gallery__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.horizontal-gallery__viewport::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.horizontal-gallery__track {
+  display: flex;
+  gap: var(--space-md);
+  padding: 0 var(--container-padding);
+}
+
+.horizontal-gallery__item {
+  flex: 0 0 auto;
+  width: clamp(280px, 30vw, 400px);
+}
+
+/* Scroll snap for mobile */
+@media (max-width: 768px) {
+  .horizontal-gallery__viewport {
+    scroll-snap-type: x mandatory;
+  }
+
+  .horizontal-gallery__item {
+    scroll-snap-align: center;
+    width: 80vw;
+  }
+}
+
+/* ==========================================================================
+   Gallery Progress Indicator
+   ========================================================================== */
+
+.horizontal-gallery__progress {
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background: var(--glass-border-light);
+  margin-top: var(--space-md);
+  border-radius: var(--radius-full);
+}
+
+.horizontal-gallery__progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--color-accent-gold);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-fast) ease-out;
+  width: 0%;
+}

@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Buttons - Glass Button System
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-medium) var(--ease-standard);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Primary Button (Glass with Gold Accent)
+   ========================================================================== */
+
+.btn--primary {
+  background: var(--glass-bg-medium);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+  border: 1px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.btn--primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 165, 93, 0.1) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium) var(--ease-standard);
+}
+
+.btn--primary:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--color-accent-saffron);
+  transform: translateY(-2px);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.btn--primary:hover::before {
+  opacity: 1;
+}
+
+.btn--primary:active {
+  transform: translateY(0);
+}
+
+/* ==========================================================================
+   Secondary Button (Outline)
+   ========================================================================== */
+
+.btn--secondary {
+  background: transparent;
+  border: 1px solid var(--glass-border-medium);
+  color: var(--color-text-primary);
+}
+
+.btn--secondary:hover {
+  background: var(--glass-bg-light);
+  border-color: var(--glass-border-heavy);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Ghost Button (Minimal)
+   ========================================================================== */
+
+.btn--ghost {
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  padding: var(--space-xs) var(--space-sm);
+  position: relative;
+}
+
+.btn--ghost::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--transition-medium) var(--ease-standard);
+}
+
+.btn--ghost:hover {
+  color: var(--color-accent-gold);
+  transform: none;
+}
+
+.btn--ghost:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ==========================================================================
+   Button Sizes
+   ========================================================================== */
+
+.btn--sm {
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-sm);
+}
+
+.btn--lg {
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-size-lg);
+}
+
+/* ==========================================================================
+   Full Width Button
+   ========================================================================== */
+
+.btn--block {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Icon Buttons
+   ========================================================================== */
+
+.btn--icon {
+  padding: var(--space-sm);
+  aspect-ratio: 1 / 1;
+}
+
+/* ==========================================================================
+   Button Group
+   ========================================================================== */
+
+.btn-group {
+  display: inline-flex;
+  gap: var(--space-sm);
+}
+
+.btn-group--vertical {
+  flex-direction: column;
+}

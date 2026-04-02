@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - Sheen & Sozni by Bhawana</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/glass-system.css">
+  <link rel="stylesheet" href="./css/typography.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/utilities.css">
+  <link rel="stylesheet" href="./css/components/navigation.css">
+  <link rel="stylesheet" href="./css/components/footer.css">
+  <link rel="stylesheet" href="./css/components/buttons.css">
+  <link rel="stylesheet" href="./css/components/cards.css">
+  <style>
+    .product-detail {
+      padding: calc(80px + var(--space-2xl)) 0 var(--space-2xl);
+    }
+
+    .product-detail__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+      align-items: start;
+    }
+
+    @media (max-width: 768px) {
+      .product-detail__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .product-image {
+      aspect-ratio: 3 / 4;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .product-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-info h1 {
+      font-size: var(--font-size-3xl);
+      margin-bottom: var(--space-md);
+    }
+
+    .product-info__price {
+      font-size: var(--font-size-xl);
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-lg);
+    }
+
+    .product-info__description {
+      color: var(--color-text-secondary);
+      line-height: var(--line-height-relaxed);
+      margin-bottom: var(--space-lg);
+    }
+
+    .product-info__details {
+      margin: var(--space-lg) 0;
+      padding: var(--space-md);
+      background: var(--glass-bg-light);
+      border-radius: var(--radius-md);
+    }
+
+    .product-info__details dt {
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-accent-gold);
+      margin-bottom: var(--space-xs);
+    }
+
+    .product-info__details dd {
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-sm);
+    }
+  </style>
+</head>
+<body>
+
+  <div data-component="nav"></div>
+
+  <section class="product-detail">
+    <div class="container">
+      <div class="product-detail__grid">
+        <div class="product-image" data-fade-in>
+          <img
+            data-src="https://images.unsplash.com/photo-1601924287271-1c9cf48fa032?w=800&h=1000&fit=crop&q=80"
+            alt="Pashmina Sozni Shawl"
+            class="lazy-load"
+          />
+        </div>
+
+        <div class="product-info glass glass--light" style="padding: var(--space-lg);" data-fade-in data-delay="1">
+          <h1>Pashmina Sozni Shawl</h1>
+          <p class="product-info__price">Price on Request</p>
+          <p class="product-info__description">
+            This exquisite pashmina shawl features delicate Sozni embroidery, hand-stitched by master artisans over several weeks. The intricate floral patterns showcase centuries-old techniques passed down through generations.
+          </p>
+
+          <dl class="product-info__details">
+            <dt>Material</dt>
+            <dd>100% Pure Pashmina Wool</dd>
+
+            <dt>Technique</dt>
+            <dd>Traditional Sozni Hand Embroidery</dd>
+
+            <dt>Dimensions</dt>
+            <dd>100cm × 200cm</dd>
+
+            <dt>Time to Create</dt>
+            <dd>6-8 Weeks</dd>
+
+            <dt>Care</dt>
+            <dd>Dry clean only</dd>
+          </dl>
+
+          <a href="./contact.html" class="btn btn--primary glass glass--interactive" style="width: 100%;">
+            Inquire About This Piece
+          </a>
+
+          <a href="./collections.html" class="btn btn--ghost" style="margin-top: var(--space-md); display: inline-block;">
+            ← Back to Collections
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-component="footer"></div>
+
+  <script src="./js/core/shared-components.js"></script>
+  <script src="./js/core/scroll-manager.js"></script>
+  <script src="./js/core/lazy-loader.js"></script>
+  <script src="./js/components/navigation.js"></script>
+  <script src="./js/main.js"></script>
+
+</body>
+</html>

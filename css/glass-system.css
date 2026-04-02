@@ -1,0 +1,399 @@
+/* ==========================================================================
+   Glass System - Glassmorphism Component Library
+   Apple-inspired liquid glass aesthetic
+   ========================================================================== */
+
+/* ==========================================================================
+   Base Glass Component
+   ========================================================================== */
+
+.glass {
+  background: var(--glass-bg-medium);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow-md);
+
+  /* Performance optimization */
+  contain: layout style paint;
+  transform: translateZ(0);
+  will-change: auto;
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(20px)) {
+  .glass {
+    background: rgba(26, 26, 26, 0.95);
+  }
+}
+
+/* ==========================================================================
+   Glass Intensity Variants
+   ========================================================================== */
+
+/* Light glass - subtle, barely there */
+.glass--light {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border-color: var(--glass-border-light);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+/* Heavy glass - more opaque, stronger blur */
+.glass--heavy {
+  background: var(--glass-bg-heavy);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  border-color: var(--glass-border-heavy);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+/* Ultra glass - maximum effect */
+.glass--ultra {
+  background: var(--glass-bg-ultra);
+  backdrop-filter: blur(var(--glass-blur-ultra));
+  -webkit-backdrop-filter: blur(var(--glass-blur-ultra));
+  border-color: var(--glass-border-heavy);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+/* ==========================================================================
+   Interactive Glass States
+   ========================================================================== */
+
+.glass--interactive {
+  transition: all var(--transition-medium) var(--ease-standard);
+  cursor: pointer;
+  position: relative;
+}
+
+.glass--interactive::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity var(--transition-medium) var(--ease-standard);
+  pointer-events: none;
+}
+
+.glass--interactive:hover {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+  transform: translateY(-2px) translateZ(0);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+.glass--interactive:hover::before {
+  opacity: 1;
+}
+
+.glass--interactive:active {
+  transform: translateY(0) translateZ(0);
+  box-shadow: var(--glass-shadow-md);
+}
+
+/* Focus state for accessibility */
+.glass--interactive:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Glass with Gradient Overlay
+   ========================================================================== */
+
+.glass--gradient {
+  position: relative;
+}
+
+.glass--gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 165, 93, 0.1) 0%,
+    rgba(107, 44, 62, 0.1) 100%
+  );
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Gold accent gradient */
+.glass--gold {
+  position: relative;
+}
+
+.glass--gold::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 165, 93, 0.15) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* Burgundy accent gradient */
+.glass--burgundy {
+  position: relative;
+}
+
+.glass--burgundy::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 44, 62, 0.15) 0%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Glass Panel Variants
+   ========================================================================== */
+
+/* Full-width panel */
+.glass-panel {
+  background: var(--glass-bg-medium);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+  border-top: 1px solid var(--glass-border-medium);
+  border-bottom: 1px solid var(--glass-border-medium);
+  padding: var(--space-lg);
+}
+
+/* Floating glass panel */
+.glass-panel--floating {
+  border: 1px solid var(--glass-border-medium);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+/* ==========================================================================
+   Glass Border Styles
+   ========================================================================== */
+
+.glass-border {
+  border: 1px solid var(--glass-border-medium);
+}
+
+.glass-border--light {
+  border: 1px solid var(--glass-border-light);
+}
+
+.glass-border--heavy {
+  border: 1px solid var(--glass-border-heavy);
+}
+
+/* Gradient border effect */
+.glass-border--gradient {
+  position: relative;
+  border: none;
+}
+
+.glass-border--gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(201, 165, 93, 0.5),
+    rgba(107, 44, 62, 0.5)
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Glass Shine Effect (Luxury Touch)
+   ========================================================================== */
+
+.glass-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  transition: transform var(--transition-slow) var(--ease-standard);
+  pointer-events: none;
+}
+
+.glass-shine:hover::after {
+  transform: translateX(50%) translateY(50%) rotate(45deg);
+}
+
+/* ==========================================================================
+   Glass Container
+   ========================================================================== */
+
+.glass-container {
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border-radius: var(--radius-xl);
+  padding: var(--space-md);
+  border: 1px solid var(--glass-border-light);
+}
+
+@media (min-width: 768px) {
+  .glass-container {
+    padding: var(--space-lg);
+  }
+}
+
+/* ==========================================================================
+   Glass Overlay (For modals, fullscreen overlays)
+   ========================================================================== */
+
+.glass-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.7);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
+  z-index: var(--z-modal-backdrop);
+  opacity: 0;
+  transition: opacity var(--transition-medium) var(--ease-standard);
+  pointer-events: none;
+}
+
+.glass-overlay.is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ==========================================================================
+   Glass Loading States
+   ========================================================================== */
+
+.glass-loading {
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.glass-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.05),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ==========================================================================
+   Performance Optimizations
+   ========================================================================== */
+
+/* Reduce blur on mobile for better performance */
+@media (max-width: 768px) {
+  .glass,
+  .glass--heavy,
+  .glass-panel {
+    backdrop-filter: blur(var(--blur-mobile));
+    -webkit-backdrop-filter: blur(var(--blur-mobile));
+  }
+
+  .glass--light {
+    backdrop-filter: blur(calc(var(--blur-mobile) * 0.5));
+    -webkit-backdrop-filter: blur(calc(var(--blur-mobile) * 0.5));
+  }
+}
+
+/* Only apply will-change during transitions */
+.glass--interactive.is-transitioning {
+  will-change: transform, background, border-color, box-shadow;
+}
+
+/* Remove will-change after transition */
+.glass--interactive:not(.is-transitioning) {
+  will-change: auto;
+}
+
+/* ==========================================================================
+   Accessibility Enhancements
+   ========================================================================== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass,
+  .glass--light,
+  .glass--heavy {
+    border-width: 2px;
+    border-color: var(--color-text-primary);
+  }
+}
+
+/* Reduced transparency mode */
+@media (prefers-reduced-transparency) {
+  .glass,
+  .glass--light,
+  .glass--heavy,
+  .glass-panel {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: var(--color-bg-secondary);
+  }
+}
+
+/* ==========================================================================
+   Utility Classes for Quick Glass Application
+   ========================================================================== */
+
+.blur-light { backdrop-filter: blur(var(--glass-blur-light)); }
+.blur-medium { backdrop-filter: blur(var(--glass-blur-medium)); }
+.blur-heavy { backdrop-filter: blur(var(--glass-blur-heavy)); }
+
+.glass-bg-light { background: var(--glass-bg-light); }
+.glass-bg-medium { background: var(--glass-bg-medium); }
+.glass-bg-heavy { background: var(--glass-bg-heavy); }
+
+.glass-shadow-sm { box-shadow: var(--glass-shadow-sm); }
+.glass-shadow-md { box-shadow: var(--glass-shadow-md); }
+.glass-shadow-lg { box-shadow: var(--glass-shadow-lg); }

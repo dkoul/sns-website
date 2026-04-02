@@ -1,0 +1,191 @@
+/* ==========================================================================
+   Utilities - Helper Classes & Animations
+   ========================================================================== */
+
+/* ==========================================================================
+   Fade-in Animations (Triggered by Intersection Observer)
+   ========================================================================== */
+
+[data-fade-in] {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow) var(--ease-standard),
+              transform var(--transition-slow) var(--ease-standard);
+}
+
+[data-fade-in].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered fade-in for multiple elements */
+[data-fade-in][data-delay="1"] { transition-delay: 100ms; }
+[data-fade-in][data-delay="2"] { transition-delay: 200ms; }
+[data-fade-in][data-delay="3"] { transition-delay: 300ms; }
+[data-fade-in][data-delay="4"] { transition-delay: 400ms; }
+
+/* ==========================================================================
+   Loading States
+   ========================================================================== */
+
+.loading {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--glass-border-light);
+  border-top-color: var(--color-accent-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Transitions
+   ========================================================================== */
+
+.transition-all { transition: all var(--transition-medium) var(--ease-standard); }
+.transition-fast { transition: all var(--transition-fast) var(--ease-standard); }
+.transition-slow { transition: all var(--transition-slow) var(--ease-standard); }
+
+/* ==========================================================================
+   Visibility
+   ========================================================================== */
+
+.hidden { display: none !important; }
+.invisible { visibility: hidden; }
+.visible { visibility: visible; }
+
+/* ==========================================================================
+   Opacity
+   ========================================================================== */
+
+.opacity-0 { opacity: 0; }
+.opacity-50 { opacity: 0.5; }
+.opacity-75 { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+/* ==========================================================================
+   Pointer Events
+   ========================================================================== */
+
+.pointer-none { pointer-events: none; }
+.pointer-auto { pointer-events: auto; }
+
+/* ==========================================================================
+   Cursor
+   ========================================================================== */
+
+.cursor-pointer { cursor: pointer; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-default { cursor: default; }
+
+/* ==========================================================================
+   Scroll Indicator (for hero sections)
+   ========================================================================== */
+
+.scroll-indicator {
+  position: absolute;
+  bottom: var(--space-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-widest);
+  color: var(--color-text-secondary);
+  text-align: center;
+  animation: float 2s ease-in-out infinite;
+}
+
+.scroll-indicator::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 30px;
+  background: var(--color-text-secondary);
+  margin: var(--space-xs) auto 0;
+  animation: scroll-line 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(-10px); }
+}
+
+@keyframes scroll-line {
+  0%, 100% { opacity: 0.3; height: 20px; }
+  50% { opacity: 1; height: 30px; }
+}
+
+/* ==========================================================================
+   Dividers
+   ========================================================================== */
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: var(--glass-border-light);
+  margin: var(--space-lg) 0;
+}
+
+.divider--gradient {
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-accent-gold),
+    transparent
+  );
+}
+
+/* ==========================================================================
+   Badge / Pill
+   ========================================================================== */
+
+.badge {
+  display: inline-block;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wider);
+  border-radius: var(--radius-full);
+  background: var(--glass-bg-medium);
+  border: 1px solid var(--glass-border-medium);
+}
+
+.badge--gold {
+  color: var(--color-accent-gold);
+  border-color: var(--color-accent-gold);
+}
+
+/* ==========================================================================
+   Image Lazy Load Effect
+   ========================================================================== */
+
+img.lazy-load {
+  opacity: 0;
+  transition: opacity var(--transition-medium) var(--ease-standard);
+}
+
+img.lazy-load.is-loaded {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   Blur Placeholder (for images)
+   ========================================================================== */
+
+.blur-up {
+  filter: blur(20px);
+  transition: filter var(--transition-medium) var(--ease-standard);
+}
+
+.blur-up.is-loaded {
+  filter: blur(0);
+}

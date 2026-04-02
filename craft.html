@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Craft - Sheen & Sozni by Bhawana</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="./favicon.ico">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/variables.css">
+  <link rel="stylesheet" href="./css/glass-system.css">
+  <link rel="stylesheet" href="./css/typography.css">
+  <link rel="stylesheet" href="./css/layout.css">
+  <link rel="stylesheet" href="./css/utilities.css">
+  <link rel="stylesheet" href="./css/components/navigation.css">
+  <link rel="stylesheet" href="./css/components/footer.css">
+  <link rel="stylesheet" href="./css/components/buttons.css">
+  <link rel="stylesheet" href="./css/components/cards.css">
+  <link rel="stylesheet" href="./css/pages/collections.css">
+</head>
+<body>
+
+  <div data-component="nav"></div>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label" data-fade-in>Artisan Mastery</span>
+      <h1 class="page-hero__title" data-fade-in data-delay="1">The Art of Sozni & Kashida</h1>
+      <p class="page-hero__description" data-fade-in data-delay="2">
+        Centuries-old embroidery techniques that transform fabric into heirloom art.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="split-layout" data-fade-in>
+        <div>
+          <img
+            data-src="https://images.unsplash.com/photo-1583623025817-d180a2221d0a?w=1200&h=800&fit=crop&q=80"
+            alt="Artisan at work"
+            class="lazy-load"
+            style="border-radius: var(--radius-lg);"
+          />
+        </div>
+        <div>
+          <h2 class="mb-md">Sozni Embroidery</h2>
+          <p class="mb-md">
+            Sozni is a traditional form of Kashmiri needlework known for its intricate patterns and delicate stitching. The name comes from the Persian word for needle—"sozun"—and the craft has been practiced in Kashmir for centuries.
+          </p>
+          <p class="mb-md">
+            Master artisans use fine silk or cotton threads to create elaborate designs on pashmina shawls, stoles, and other textiles. Each piece can take 6-12 months to complete, with some masterworks requiring even longer.
+          </p>
+        </div>
+      </div>
+
+      <div class="split-layout mt-2xl" data-fade-in data-delay="1">
+        <div class="hide-mobile"></div>
+        <div>
+          <h2 class="mb-md">Kashida Work</h2>
+          <p class="mb-md">
+            Kashida is another ancient embroidery technique characterized by its bold, flowing patterns and use of vibrant silk threads. Unlike Sozni's delicate precision, Kashida features larger, more dramatic motifs.
+          </p>
+          <p class="mb-md">
+            This technique has been used to adorn royal garments and ceremonial textiles for generations, and today remains a symbol of luxury and cultural heritage.
+          </p>
+        </div>
+        <div class="hide-desktop">
+          <img
+            data-src="https://images.unsplash.com/photo-1617627143659-8554c3183a94?w=1200&h=800&fit=crop&q=80"
+            alt="Embroidery detail"
+            class="lazy-load"
+            style="border-radius: var(--radius-lg);"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--color-bg-secondary);">
+    <div class="container">
+      <div class="content-center text-center" data-fade-in>
+        <h2 class="mb-lg">The Process</h2>
+        <p class="lead mb-xl">
+          Creating a single piece involves numerous steps, each requiring years of training to master.
+        </p>
+      </div>
+
+      <div class="grid-3 mt-xl">
+        <div class="glass glass--light" style="padding: var(--space-lg); text-align: center;" data-fade-in data-delay="1">
+          <h3 class="mb-sm">1. Design</h3>
+          <p class="text-secondary">
+            Patterns are hand-drawn or traced from traditional motifs, often inspired by nature and Persian art.
+          </p>
+        </div>
+
+        <div class="glass glass--light" style="padding: var(--space-lg); text-align: center;" data-fade-in data-delay="2">
+          <h3 class="mb-sm">2. Embroidery</h3>
+          <p class="text-secondary">
+            Master artisans stitch each thread by hand, working for months to complete intricate patterns.
+          </p>
+        </div>
+
+        <div class="glass glass--light" style="padding: var(--space-lg); text-align: center;" data-fade-in data-delay="3">
+          <h3 class="mb-sm">3. Finishing</h3>
+          <p class="text-secondary">
+            Each piece is meticulously inspected and finished, ensuring it meets the highest standards of quality.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container content-center text-center">
+      <div data-fade-in>
+        <h2 class="mb-md">Experience the Artistry</h2>
+        <p class="mb-lg">
+          Explore our collection and discover pieces that honor this timeless craft.
+        </p>
+        <a href="./collections.html" class="btn btn--primary glass glass--interactive">
+          View Collection
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div data-component="footer"></div>
+
+  <script src="./js/core/shared-components.js"></script>
+  <script src="./js/core/scroll-manager.js"></script>
+  <script src="./js/core/lazy-loader.js"></script>
+  <script src="./js/components/navigation.js"></script>
+  <script src="./js/main.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+/* ==========================================================================
+   Glass Cards - Product & Content Cards
+   ========================================================================== */
+
+.glass-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  contain: layout style paint;
+}
+
+/* ==========================================================================
+   Product Card
+   ========================================================================== */
+
+.glass-card__image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+}
+
+.glass-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transition-slow) var(--ease-standard);
+}
+
+.glass-card:hover .glass-card__image {
+  transform: scale(1.05);
+}
+
+.glass-card__content {
+  padding: var(--space-md);
+  background: var(--glass-bg-medium);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
+  border: 1px solid var(--glass-border-medium);
+  border-top: none;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.glass-card__title {
+  font-family: var(--font-display);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-normal);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.glass-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  flex-grow: 1;
+}
+
+.glass-card__cta {
+  margin-top: var(--space-sm);
+  align-self: flex-start;
+}
+
+/* Hover effect on card */
+.glass-card--interactive .glass-card__content {
+  transition: all var(--transition-medium) var(--ease-standard);
+}
+
+.glass-card--interactive:hover .glass-card__content {
+  background: var(--glass-hover-bg);
+  border-color: var(--glass-hover-border);
+}
+
+/* ==========================================================================
+   Quote Card (For testimonials / brand philosophy)
+   ========================================================================== */
+
+.quote-card {
+  padding: var(--space-lg);
+  background: var(--glass-bg-light);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
+  border: 1px solid var(--glass-border-light);
+  border-radius: var(--radius-xl);
+  border-left: 3px solid var(--color-accent-gold);
+}
+
+.quote-card__text {
+  font-family: var(--font-display);
+  font-size: var(--font-size-xl);
+  font-style: italic;
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-md);
+}
+
+.quote-card__author {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================================================
+   Feature Card (For brand values)
+   ========================================================================== */
+
+.feature-card {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.feature-card__icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-md);
+  color: var(--color-accent-gold);
+}
+
+.feature-card__title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: var(--space-sm);
+}
+
+.feature-card__description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+}
